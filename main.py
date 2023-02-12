@@ -9,6 +9,18 @@ hypotheses = [h1,h2,h3,h4]
 # add data for testing the hypotheses here
 data = ["apple", "pear", "apple", "orange", "cherry", "cherry", "orange", "banana"]
 
+def main(data, hypotheses):
+    list_of_probabilities = [] # list containing the probability of each hypothesis to be true given dataset "data"
+    for h in hypotheses:
+        list_of_probabilities.append(summation(data, h))
+    return list_of_probabilities
+
+def printing(list_of_probabilities): # function to print the results to console
+    i = 0
+    for element in list_of_probabilities:
+        i += 1
+        print(f"hypothesis {i} probability = {element}")
+
 def p_d_given_h(h, d): # calculates the probability of hypothesis h given a single data point d
     if h.count(d) > 0:
         output = 0.9/len(h) + 0.01
@@ -23,8 +35,3 @@ def summation(data, h): # calculates the sum of probabilities given each data po
         #print(f"total p of h is {str(output)}")
     #print("\n\n\n")
     return output/len(data)
-
-list_of_probabilities = [] # list containing the probability of each hypothesis to be true given dataset "data"
-for h in hypotheses:
-    list_of_probabilities.append(summation(data, h))
-
