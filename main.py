@@ -28,4 +28,3 @@ list_of_probabilities = [] # list containing the probability of each hypothesis 
 for h in hypotheses:
     list_of_probabilities.append(summation(data, h))
 
-print(list_of_probabilities)
